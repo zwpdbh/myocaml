@@ -1,0 +1,4 @@
+(executable
+ (public_name myocaml)
+ (name main)
+ (libraries myocaml))
