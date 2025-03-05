@@ -1,2 +1,3 @@
 (executable
- (name play))
+ (name play)
+ (libraries utils))
