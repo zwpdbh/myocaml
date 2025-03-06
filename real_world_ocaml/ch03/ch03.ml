@@ -1,6 +1,7 @@
 open Base
 open Core
 open Core_bench
+open Base.Poly
 (* Lists and Patterns *)
 (* https://dev.realworldocaml.org/lists-and-patterns.html *)
 
@@ -68,3 +69,33 @@ let _ = List.reduce ~f:( + ) [ 1; 2; 3; 4; 5 ]
 (* filter and filter map *)
 let _ = List.filter ~f:(fun x -> x mod 2 = 0) [ 1; 2; 3; 4; 5 ]
 let _ = List.filter_map ~f:(fun x -> if x mod 2 = 0 then Some x else None) [ 1; 2; 3; 4; 5 ]
+
+(* Count element in list *)
+let _ = List.count ~f:Option.is_some [ None; Some 1; None; Some 2 ]
+
+(* partiion list *)
+let _ml_files, other_files =
+  let is_ocaml_source s =
+    match String.rsplit2 s ~on:'.' with Some (_, ("ml" | "mli")) -> true | _ -> false
+  in
+  List.partition_tf [ "foo.c"; "foo.ml"; "bar.ml"; "bar.mli" ] ~f:is_ocaml_source
+
+(* combine lists *)
+let _ = List.append [ 1; 2; 3; 4 ] [ 4; 5; 6 ]
+let _ = [ 1; 2; 3; 4 ] @ [ 4; 5; 6 ]
+let _ = List.concat [ [ 1; 2 ]; [ 3; 4; 5 ]; [ 6 ]; [] ]
+
+(* Tail Recursion *)
+let _ =
+  let rec remove_sequential_duplicates list =
+    match list with
+    | ([] | [ _ ]) as l -> l
+    | first :: (second :: _ as tl) when first = second -> remove_sequential_duplicates tl
+    | first :: tl -> first :: remove_sequential_duplicates tl
+  in
+  remove_sequential_duplicates [ "one"; "two"; "two"; "two"; "three" ]
+
+(* Polymorphic Compare *)
+(* Need open Base.Poly;; *)
+let _ = "foo" = "bar"
+let _ = [ 1; 2; 3 ] = [ 1; 2; 3 ]
