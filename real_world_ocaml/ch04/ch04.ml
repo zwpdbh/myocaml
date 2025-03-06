@@ -4,12 +4,7 @@ open Stdio
 
 (* a utility that reads lines from stdin, computes a frequency count of the lines, and prints out the ten most frequent lines *)
 
-let build_counts () =
-  In_channel.fold_lines In_channel.stdin ~init:[] ~f:(fun counts line ->
-      let count =
-        match List.Assoc.find ~equal:String.equal counts line with None -> 0 | Some x -> x
-      in
-      List.Assoc.add ~equal:String.equal counts line (count + 1))
+let build_counts () = In_channel.fold_lines In_channel.stdin ~init:[] ~f:Counter.touch
 
 let () =
   build_counts ()

@@ -1,5 +1,6 @@
 (executable
  (name ch04)
  (libraries base core)
+ (modules ch04 counter)
  (flags
   (:standard -w -32-33-34-37)))
