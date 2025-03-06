@@ -1,3 +1,5 @@
 (executable
  (name ch02)
- (libraries base core))
+ (libraries base core)
+ (flags
+  (:standard -w -32-33-34-37)))
