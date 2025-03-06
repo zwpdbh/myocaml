@@ -1,5 +1,5 @@
 (executable
- (name ch03)
- (libraries base core core_bench)
+ (name ch04)
+ (libraries base core)
  (flags
   (:standard -w -32-33-34-37)))
