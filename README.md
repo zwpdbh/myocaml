@@ -7,15 +7,16 @@ Each switch is an isolated OCaml environment with its own compiler version and s
 ```sh 
 # create switch 
 opam switch create myocaml 5.3.0
-opam install ocamlformat ocaml-lsp-server base core core_bench
+opam install utop ocamlformat ocaml-lsp-server base core core_bench
 eval $(opam env)
 
+# check information about ocaml-lsp-server
+opam info ocaml-lsp-server
 
 # remove installed switch 
 opam switch list 
 opam switch remove 
 ```
-
 
 ## How to quickly load addition libraries into utop 
 
