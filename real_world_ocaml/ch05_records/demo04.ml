@@ -1,6 +1,6 @@
 open Core
 
-(* When multiple records has common name,  the best practise is to put each in a different module*)
+(* When multiple records has common name, the best practise is to put each in a different module*)
 
 (** The log_entry message is used to deliver a log entry to the server *)
 module Log_entry = struct
