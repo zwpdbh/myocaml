@@ -1,6 +1,14 @@
 (executable
  (name ch04)
  (libraries base core)
- (modules ch04 freq counter_v1 counter_v2 couter_v3)
+ (modules
+  ch04
+  freq
+  counter_v1
+  counter_v2
+  counter_v3
+  demo_nested_module
+  ext_option
+  import)
  (flags
   (:standard -w -32-33-34-37)))
