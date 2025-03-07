@@ -1,6 +1,6 @@
 (executable
  (name ch04)
  (libraries base core)
- (modules ch04 counter)
+ (modules ch04 freq counter_v1 counter_v2 couter_v3)
  (flags
   (:standard -w -32-33-34-37)))
