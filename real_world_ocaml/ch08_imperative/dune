@@ -1,0 +1,8 @@
+(executable
+ (name ch08)
+ (modules ch08 demo01)
+ (libraries base core re core_unix)
+ (preprocess
+  (pps ppx_jane ppx_let))
+ (flags
+  (:standard -w -32-33-34-37)))
