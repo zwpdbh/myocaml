@@ -1,8 +1,8 @@
 (executable
  (name ch07)
- (modules ch07 demo01)
+ (modules ch07 demo01 demo02_bind demo03_exception)
  (libraries base core re core_unix)
  (preprocess
-  (pps ppx_jane))
+  (pps ppx_jane ppx_let))
  (flags
   (:standard -w -32-33-34-37)))

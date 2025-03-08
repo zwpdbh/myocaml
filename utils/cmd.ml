@@ -1,5 +1,3 @@
-open Result
-
 type error = ExecutionError of string | SignalError of string | CommandUnknownError of string
 type 'a result = ('a, error) Result.t
 
