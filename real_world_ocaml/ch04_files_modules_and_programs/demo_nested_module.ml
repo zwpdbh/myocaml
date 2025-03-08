@@ -1,6 +1,8 @@
 open Base
 
 (* module <name> : <signature> = <implementation> *)
+(* module Username : sig ... end = struct ... end *)
+(* This syntax is used when you're defining a module and its implementation simultaneously.  *)
 module Username : sig
   type t
 
