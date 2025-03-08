@@ -1,6 +1,6 @@
 (executable
- (name ch09)
- (modules ch09 demo01 demo02 demo03 demo04 demo05 demo06)
+ (name ch10)
+ (modules ch10 demo01 demo02)
  (libraries base core re core_unix)
  (preprocess
   (pps ppx_jane ppx_let))
