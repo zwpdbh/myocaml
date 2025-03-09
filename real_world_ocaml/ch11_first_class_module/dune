@@ -1,7 +1,7 @@
 (executable
  (name ch11)
  (modules ch11 query_handling)
- (libraries base core re core_unix)
+ (libraries base core re core_unix core_unix.sys_unix)
  (preprocess
   (pps ppx_jane ppx_let))
  (flags
