@@ -59,7 +59,7 @@ type string_int_map = int Map.M(String).t [@@deriving sexp]
 let _demo_create_type_alias_for_map =
   let my_map : string_int_map = Map.empty (module String) in
   let updated_map = Map.set my_map ~key:"hello" ~data:42 in
-  Map.iter updated_map ~f:(fun ~key ~data -> Stdio.printf "%s: %d\n" key data)
+  Map.iteri updated_map ~f:(fun ~key ~data -> Stdio.printf "%s: %d\n" key data)
 
 let _demo_map01 =
   (* Create an empty map with int keys and string values *)
