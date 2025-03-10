@@ -9,6 +9,4 @@
   counter_v3
   demo_nested_module
   ext_option
-  import)
- (flags
-  (:standard -w -32-33-34-37)))
+  import))

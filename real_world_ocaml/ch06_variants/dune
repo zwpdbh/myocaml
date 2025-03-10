@@ -3,6 +3,4 @@
  (modules ch06 demo01 demo02 demo03 demo04 demo05 demo06)
  (libraries base core re core_unix)
  (preprocess
-  (pps ppx_jane))
- (flags
-  (:standard -w -32-33-34-37)))
+  (pps ppx_jane)))

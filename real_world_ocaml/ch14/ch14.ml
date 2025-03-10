@@ -18,6 +18,7 @@ module Book = struct
   include T
   include Comparator.Make (T)
 end
+(* All the code above is devoted  to create a comparison function and s-expression converter for the Book.t *)
 
 (*With this module in hand, we can now build a set of Book.t’s  *)
 let some_programming_books =
@@ -28,3 +29,13 @@ let some_programming_books =
       { title = "Structure and Interpretation of Computer Programs"; isbn = "978-0262510875" };
       { title = "The C Programming Language"; isbn = "978-0131101630" };
     ]
+
+(* With ppx_jane, we could quickly achieve above feature like: *)
+module BookV2 = struct
+  module T = struct
+    type t = { title : string; isbn : string } [@@deriving compare, sexp]
+  end
+
+  include T
+  include Comparator.Make (T)
+end

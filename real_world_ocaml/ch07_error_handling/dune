@@ -3,6 +3,4 @@
  (modules ch07 demo01 demo02_bind demo03_exception)
  (libraries base core re core_unix)
  (preprocess
-  (pps ppx_jane ppx_let))
- (flags
-  (:standard -w -32-33-34-37)))
+  (pps ppx_jane ppx_let)))

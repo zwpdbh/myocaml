@@ -1,6 +1,4 @@
-open Base
 open Core
-open Core_bench
 open Base.Poly
 (* Lists and Patterns *)
 (* https://dev.realworldocaml.org/lists-and-patterns.html *)

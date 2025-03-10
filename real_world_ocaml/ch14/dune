@@ -3,6 +3,4 @@
  (modules ch14 maps sets)
  (libraries base core re core_unix core_unix.sys_unix)
  (preprocess
-  (pps ppx_jane ppx_let))
- (flags
-  (:standard -w -32-33-34-37)))
+  (pps ppx_jane ppx_let)))

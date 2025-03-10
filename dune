@@ -1,0 +1,15 @@
+(env
+ (dev
+  (flags
+   (:standard
+    -warn-error
+    -A ; Don't treat any warnings as errors
+    -w
+    -32-33-34-37
+    ; +A: Enable all warnings
+    ; -32: Disable unused value declaration warning
+    ; -33: Disable unused open statement warning
+    ; -34: Disable unused type declaration warning
+    ; -37: Disable unused constructor warning
+    ; +67: Ensure warning for unused function argument is enabled
+    ))))

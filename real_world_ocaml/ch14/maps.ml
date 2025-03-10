@@ -51,3 +51,44 @@ end
 (* Create map from association list *)
 let digit_map = Map.of_alist_exn (module Int) digit_alist
 let x = Map.find digit_map 3
+
+(* Define a new type alias for some map, 
+This creates a map where the keys are strings and the values are integers. *)
+type string_int_map = int Map.M(String).t [@@deriving sexp]
+
+let _demo_create_type_alias_for_map =
+  let my_map : string_int_map = Map.empty (module String) in
+  let updated_map = Map.set my_map ~key:"hello" ~data:42 in
+  Map.iter updated_map ~f:(fun ~key ~data -> Stdio.printf "%s: %d\n" key data)
+
+let _demo_map01 =
+  (* Create an empty map with int keys and string values *)
+  let _empty_map = Map.empty (module Int) in
+
+  (* Add some key-value pairs to the map *)
+  let map_with_values = Map.of_alist_exn (module Int) [ (1, "One"); (2, "Two"); (3, "Three") ] in
+
+  (* Add a single key-value pair to an existing map *)
+  let updated_map = Map.set map_with_values ~key:4 ~data:"Four" in
+
+  (* Retrieve a value from the map *)
+  let value = Map.find updated_map 2 in
+
+  (* Print the value *)
+  match value with
+  | Some v -> Stdio.printf "Value for key 2: %s\n" v
+  | None -> Stdio.printf "Key 2 not found in the map\n"
+
+let _demo_map02 =
+  (* Create a map with an initial key-value pair *)
+  let initial_map = Map.singleton (module Int) 1 "one" in
+
+  (* Print the value for key 1 *)
+  match Map.find initial_map 1 with
+  | Some value -> Stdio.printf "Value for key 1: %s\n" value
+  | None ->
+      Stdio.printf "Key 1 not found in the map\n";
+      (* Add more key-value pairs *)
+      let updated_map = initial_map |> Map.set ~key:2 ~data:"two" |> Map.set ~key:3 ~data:"three" in
+      (* Print the size of the updated map *)
+      Stdio.printf "Size of updated map: %d\n" (Map.length updated_map)
