@@ -39,3 +39,12 @@ module BookV2 = struct
   include T
   include Comparator.Make (T)
 end
+
+let _ =
+  Set.of_list
+    (module BookV2)
+    [
+      { title = "Real World OCaml"; isbn = "978-1449323912" };
+      { title = "Structure and Interpretation of Computer Programs"; isbn = "978-0262510875" };
+      { title = "The C Programming Language"; isbn = "978-0131101630" };
+    ]

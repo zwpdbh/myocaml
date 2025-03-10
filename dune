@@ -11,5 +11,13 @@
     ; -33: Disable unused open statement warning
     ; -34: Disable unused type declaration warning
     ; -37: Disable unused constructor warning
-    ; +67: Ensure warning for unused function argument is enabled
+    -w
+    +8+20+26+27+39+60+67
+    ; +8: Enable warning 8 (partial match)
+    ; +20: Enable warning 20 (unused arguments)
+    ; +26: Enable warning 26 (unused variables)
+    ; +27: Enable warning 27 (unused variables of unit type)
+    ; +39: Enable warning 39 (unused rec flag)
+    ; +60: Enable warning 60 (unused module)
+    ; +67: Enable warning 67 (unused function argument)
     ))))
