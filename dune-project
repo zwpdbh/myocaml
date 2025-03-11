@@ -17,6 +17,7 @@
 
 (package
  (name myocaml)
+ ; install them by opam install . --deps-only
  (depends
   ocaml
   dune
