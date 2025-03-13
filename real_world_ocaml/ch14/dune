@@ -1,6 +1,6 @@
 (executable
  (name ch14)
- (modules ch14 maps sets)
- (libraries base core re core_unix core_unix.sys_unix)
+ (modules ch14 maps sets hashtables)
+ (libraries base core core_bench re core_unix core_unix.sys_unix)
  (preprocess
   (pps ppx_jane ppx_let)))
