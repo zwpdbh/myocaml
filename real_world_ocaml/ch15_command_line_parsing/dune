@@ -1,0 +1,6 @@
+(executable
+ (name ch15)
+ (modules ch15 args)
+ (libraries base core)
+ (preprocess
+  (pps ppx_jane ppx_let)))
