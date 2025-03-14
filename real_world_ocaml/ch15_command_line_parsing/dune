@@ -1,6 +1,6 @@
 (executable
  (name ch15)
- (modules ch15 args)
- (libraries base core)
+ (modules ch15 common custom_argument optional_argument default_argument)
+ (libraries base core core_unix.command_unix core_unix.filename_unix)
  (preprocess
-  (pps ppx_jane ppx_let)))
+  (pps ppx_jane)))
