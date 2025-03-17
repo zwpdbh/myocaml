@@ -1,0 +1,18 @@
+# helm install cert-manager "oci://mcr.microsoft.com/azurelinux/helm/cert-manager" --version 1.12.12-5 --values cert-manager-values.yaml --namespace cert-manager --create-namespace --wait --atomic
+cert-manager:
+  installCRDs: true
+  tolerations:
+    - key: "CriticalAddonsOnly"
+      operator: "Exists"
+  webhook:
+    tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Exists"
+  cainjector:
+    tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Exists"
+  startupapicheck:
+    tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Exists"
