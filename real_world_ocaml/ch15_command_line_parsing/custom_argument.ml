@@ -11,9 +11,9 @@ let regular_file =
       | `Unknown -> failwith "could not determine if the file was a regular file")
 
 let command =
-  Command.basic ~summary:"Generate an MD5 hash of the input data"
-    ~readme:(fun () -> "More detailed information")
+  Command.basic ~summary:"Demo the usage of custom argument command"
+    ~readme:(fun () -> "Generate an MD5 hash of the input data")
     (let%map_open.Command filename = anon ("filename" %: regular_file) in
      fun () -> do_hash_v1 filename)
 
-let () = Command_unix.run ~version:"1.0" ~build_info:"RWO" command
+(* let () = Command_unix.run ~version:"1.0" ~build_info:"RWO" command *)
