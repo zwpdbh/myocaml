@@ -9,9 +9,7 @@ let do_hash filename =
   printf "MD5 (%s) = %s\n" filename md5
 
 let command =
-  Command.basic ~summary:"Generate an MD5 hash of the input data"
-    ~readme:(fun () -> "More detailed information")
+  Command.basic ~summary:"Demo sequence argument command"
+    ~readme:(fun () -> "Generate an MD5 hash of the input data")
     (let%map_open.Command files = anon (sequence ("filename" %: Filename_unix.arg_type)) in
      fun () -> match files with [] -> do_hash "-" | _ -> List.iter files ~f:do_hash)
-
-let () = Command_unix.run ~version:"1.0" ~build_info:"RWO" command

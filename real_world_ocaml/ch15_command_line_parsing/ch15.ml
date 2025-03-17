@@ -63,7 +63,12 @@ let command =
 let command =
   Command.group ~summary:"Show different ways to build command"
     [
-      ("demo01", command); ("demo02", Custom_argument.command); ("demo03", Default_argument.command);
+      ("demo01", command);
+      ("demo02", Custom_argument.command);
+      ("demo03", Default_argument.command);
+      ("demo04", Optional_argument.command);
+      ("demo05", Sequence_argument.command);
+      ("demo06", Labeled_argument.command);
     ]
 
 let () = Command_unix.run ~version:"1.0" ~build_info:"" command

@@ -11,7 +11,7 @@ let checksum_from_file filename =
   Md5.digest_string contents |> Md5.to_hex |> print_endline
 
 let command =
-  Command.basic ~summary:"Generate an MD5 hash of the input data"
+  Command.basic ~summary:"Demo the usage of labeled argument"
     (let%map_open.Command use_string =
        (* The doc string is formatted so that the first word is the short name that appears in the usage text, with the remainder being the full help text.  *)
        flag "-s" (optional string) ~doc:"string Checksum the given string"
@@ -23,5 +23,3 @@ let command =
          match use_string with
          | Some buf -> checksum_from_string buf
          | None -> checksum_from_file filename)
-
-let () = Command_unix.run command
