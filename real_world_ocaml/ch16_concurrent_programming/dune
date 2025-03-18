@@ -1,6 +1,6 @@
 (executable
  (name ch16)
- (modules ch16)
+ (modules ch16 simple_async)
  (libraries
   async
   base
