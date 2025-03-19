@@ -28,6 +28,10 @@
   base
   core
   core_unix
-  core_bench))
+  core_bench
+  uri
+  yojson
+  cohttp
+  textwrap))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

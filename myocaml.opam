@@ -17,6 +17,10 @@ depends: [
   "core"
   "core_unix"
   "core_bench"
+  "uri"
+  "yojson"
+  "cohttp"
+  "textwrap"
   "odoc" {with-doc}
 ]
 build: [
