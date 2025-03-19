@@ -48,3 +48,47 @@ let command =
      specified file and prints them to stdout. You can optionally convert the text to uppercase."
   in
   Command.async ~summary:"Demo async read file" ~readme params
+
+(* how bind works behind the scene *)
+let my_bind d ~f =
+  let i = Ivar.create () in
+  upon d (fun x -> upon (f x) (fun y -> Ivar.fill_exn i y));
+  Ivar.read i
+
+(* Here’s roughly what happens when you write let d' = Deferred.bind d ~f.
+A new ivar i is created to hold the final result of the computation. The corresponding deferred is returned
+A function is registered to be called when the deferred d becomes determined.
+That function, once run, calls f with the value that was determined for d.
+Another function is registered to be called when the deferred returned by f becomes determined.
+When that function is called, it uses it to fill i, causing the corresponding deferred it to become determined. *)
+
+(* The differences between let%bind and let%map *)
+let example1 () =
+  let%bind x = Deferred.return 1 in
+  let%bind y = Deferred.return (x + 1) in
+  Deferred.return (y + 1)
+
+let example2 () =
+  let%bind x = Deferred.return 1 in
+  let%map y = Deferred.return (x + 1) in
+  y + 1
+
+let run () =
+  let%bind result1 = example1 () in
+  let%bind result2 = example2 () in
+  printf "Result 1: %d\n" result1;
+  printf "Result 2: %d\n" result2;
+  Deferred.unit
+
+let command_for_let_binding =
+  let params =
+    let%map_open.Command verbose = flag "-v" no_arg ~doc:"Enable verbose output" in
+    fun () ->
+      if verbose then printf "Running in verbose mode\n";
+      run ()
+  in
+  let readme () =
+    "This command demonstrates the difference between let%bind and let%map in OCaml's Async. It \
+     runs two example functions and prints their results."
+  in
+  Command.async ~summary:"Demo let%bind vs let%map" ~readme params
