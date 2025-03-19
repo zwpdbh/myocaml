@@ -1,12 +1,15 @@
 (executable
  (name ch16)
- (modules ch16 simple_async echo_server)
+ (modules ch16 simple_async echo_server query_duckduckgo)
  (libraries
   async
   base
   core
   core_unix.command_unix
   core_unix.filename_unix
-  cmdliner)
+  textwrap
+  uri
+  yojson
+  cohttp)
  (preprocess
   (pps ppx_jane)))
