@@ -81,12 +81,7 @@ let run () =
   Deferred.unit
 
 let command_for_let_binding =
-  let params =
-    let%map_open.Command verbose = flag "-v" no_arg ~doc:"Enable verbose output" in
-    fun () ->
-      if verbose then printf "Running in verbose mode\n";
-      run ()
-  in
+  let params = Command.Param.return (fun () -> run ()) in
   let readme () =
     "This command demonstrates the difference between let%bind and let%map in OCaml's Async. It \
      runs two example functions and prints their results."

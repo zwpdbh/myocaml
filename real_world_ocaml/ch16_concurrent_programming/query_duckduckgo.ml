@@ -27,3 +27,26 @@ let get_definition word =
   let%bind _, body = Cohttp_async.Client.get (query_uri word) in
   let%map string = Cohttp_async.Body.to_string body in
   (word, get_definition_fromn_json string)
+
+let get_definition word =
+  let%bind _, body = Cohttp_async.Client.get (query_uri word) in
+  let%map string = Cohttp_async.Body.to_string body in
+  let the_definition = get_definition_fromn_json string in
+  (word, the_definition)
+
+(* Print out a word/definition pair *)
+let print_result (word, definition) =
+  printf "%s\n %s\n \n %s\n \n" word
+    (String.init (String.length word) ~f:(fun _ -> '-'))
+    (match definition with
+    | None -> "No definition found"
+    | Some def -> String.concat ~sep:"\n" (Wrapper.wrap (Wrapper.make 70) def))
+
+(* Run many searches in parallel, printing out the results after
+   they're all done. *)
+let search_and_print words =
+  let%map results = Deferred.all (List.map words ~f:get_definition) in
+  List.iter results ~f:print_result
+
+let search_and_printv2 words =
+  Deferred.all_unit (List.map words ~f:(fun word -> get_definition word >>| print_result))
