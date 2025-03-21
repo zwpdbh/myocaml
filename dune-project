@@ -22,10 +22,10 @@
  (depends
   ocaml
   dune
-  (ocaml-lsp-server :dev)
-  (odoc :dev)
-  (ocamlformat :dev)
-  (utop :dev)
+  ocaml-lsp-server
+  odoc
+  ocamlformat
+  utop
   base
   core
   core_unix

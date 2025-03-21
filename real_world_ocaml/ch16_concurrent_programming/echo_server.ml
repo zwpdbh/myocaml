@@ -1,4 +1,4 @@
-(* write an echo server, i.e., a program that accepts connections from clients and spits back whatever is sent to it.   *)
+(* write an echo server, i.e., a program that accepts connections from clients and spits back whatever is sent to it.  *)
 
 open Core
 open Async

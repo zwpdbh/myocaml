@@ -65,3 +65,18 @@ let command =
   (* 2. create readme *)
   let readme () = "Search for definitions of words using DuckDuckGo API." in
   Command.async ~summary:"Search for word definitions" ~readme params
+
+let handle_error () =
+  match%map
+    try_with (fun () ->
+        let%map () = after (Time_float.Span.of_sec 0.1) in
+        raise Exit)
+  with
+  | Ok () -> printf "succeed"
+  | Error _ -> printf "error"
+
+(* *)
+let command_show_async_exception =
+  let params = Command.Param.return (fun () -> handle_error ()) in
+  let readme () = "Demo exception handling in async" in
+  Command.async ~summary:"async exception handling" ~readme params

@@ -8,6 +8,7 @@ let command =
       ("demo02", Simple_async.command_for_let_binding);
       ("demo03", Echo_server.command);
       ("demo04", Query_duckduckgo.command);
+      ("demo05", Query_duckduckgo.command_show_async_exception);
     ]
 
 let () = Command_unix.run ~version:"1.0" ~build_info:"" command

@@ -10,10 +10,10 @@ bug-reports: "https://github.com/username/reponame/issues"
 depends: [
   "ocaml"
   "dune" {>= "3.17"}
-  "ocaml-lsp-server" {dev}
-  "odoc" {dev}
-  "ocamlformat" {dev}
-  "utop" {dev}
+  "ocaml-lsp-server"
+  "odoc"
+  "ocamlformat"
+  "utop"
   "base"
   "core"
   "core_unix"
@@ -25,7 +25,6 @@ depends: [
   "async_ssl"
   "textwrap"
   "ppx_jane"
-  "odoc" {with-doc}
 ]
 build: [
   ["dune" "subst"] {dev}
