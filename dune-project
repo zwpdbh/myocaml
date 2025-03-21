@@ -11,12 +11,13 @@
 
 (maintainers "Maintainer Name <maintainer@example.com>")
 
-(license LICENSE)
+(license MIT)
 
 (documentation https://url/to/documentation)
 
 (package
  (name myocaml)
+ (synopsis "A collection of OCaml examples and exercises")
  ; install them by opam install . --deps-only
  (depends
   ocaml
@@ -32,6 +33,9 @@
   uri
   yojson
   cohttp
-  textwrap))
+  cohttp-async
+  async_ssl
+  textwrap
+  ppx_jane))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

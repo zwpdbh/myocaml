@@ -6,7 +6,7 @@ It relies on textwrap, uri, yojson, cohttp*)
 
 (* Generate a DuckDuckGo search URI from a query string *)
 let query_uri query =
-  let base_uri = Uri.of_string "http://api.duckduckgo.com/?format=json" in
+  let base_uri = Uri.of_string "https://api.duckduckgo.com/?format=json" in
   Uri.add_query_param base_uri ("q", [ query ])
 
 (* Extract the "Definition" or "Abstract" field from the DuckDuckGo
@@ -50,3 +50,18 @@ let search_and_print words =
 
 let search_and_printv2 words =
   Deferred.all_unit (List.map words ~f:(fun word -> get_definition word >>| print_result))
+
+(* dune exec real_world_ocaml/ch16_concurrent_programming/ch16.exe demo04 -- -search "ocaml functional","programming" *)
+let command =
+  (* 1. create Command.Param *)
+  let params =
+    let%map_open.Command words =
+      flag "search"
+        (required (Arg_type.comma_separated string))
+        ~doc:"WORDS Comma-separated list of words to search for"
+    in
+    fun () -> search_and_printv2 words
+  in
+  (* 2. create readme *)
+  let readme () = "Search for definitions of words using DuckDuckGo API." in
+  Command.async ~summary:"Search for word definitions" ~readme params

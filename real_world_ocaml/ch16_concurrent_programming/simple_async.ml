@@ -52,7 +52,7 @@ let command =
 (* how bind works behind the scene *)
 let my_bind d ~f =
   let i = Ivar.create () in
-  upon d (fun x -> upon (f x) (fun y -> Ivar.fill_exn i y));
+  upon d (fun x -> upon (f x) (fun y -> Ivar.fill i y));
   Ivar.read i
 
 (* Here’s roughly what happens when you write let d' = Deferred.bind d ~f.

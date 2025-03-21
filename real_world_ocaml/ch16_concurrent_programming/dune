@@ -10,6 +10,7 @@
   textwrap
   uri
   yojson
-  cohttp-async)
+  cohttp-async
+  async_ssl)
  (preprocess
   (pps ppx_jane)))
