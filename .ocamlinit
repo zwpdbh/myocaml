@@ -1,0 +1,11 @@
+#use "topfind";;
+#require "core";;
+#require "core.top";;
+#require "ppx_jane";;
+open Core;;
+
+(* Install Core's pretty printers *)
+#install_printer Core.Sexp.pp;;
+
+(* Project-specific settings *)
+#directory "_build";;  (* If you're using dune, this allows loading compiled modules *)
