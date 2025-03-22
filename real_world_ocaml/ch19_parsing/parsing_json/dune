@@ -1,0 +1,17 @@
+(menhir
+ (modules parser))
+
+(ocamllex lexer)
+
+(library
+ (name parsing_json)
+ (modules json parser lexer)
+ (libraries
+  base
+  core
+  async
+  core_unix.command_unix
+  yojson
+  ppx_deriving_yojson.runtime)
+ (preprocess
+  (pps ppx_jane ppx_deriving_yojson)))
