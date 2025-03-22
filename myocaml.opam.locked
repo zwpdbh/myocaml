@@ -28,7 +28,6 @@ depends: [
   "camlp-streams" {= "5.0.1" & dev}
   "capitalization" {= "v0.17.0"}
   "chrome-trace" {= "3.17.2" & dev}
-  "cmdliner" {= "1.3.0"}
   "core" {= "v0.17.1"}
   "core_bench" {= "v0.17.0"}
   "core_extended" {= "v0.17.0"}

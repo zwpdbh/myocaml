@@ -1,6 +1,16 @@
 (executable
  (name ch16)
- (modules ch16)
- (libraries async base core core_unix.command_unix core_unix.filename_unix)
+ (modules ch16 simple_async echo_server query_duckduckgo)
+ (libraries
+  async
+  base
+  core
+  core_unix.command_unix
+  core_unix.filename_unix
+  textwrap
+  uri
+  yojson
+  cohttp-async
+  async_ssl)
  (preprocess
   (pps ppx_jane)))

@@ -13,4 +13,3 @@ let diff =
 
 (* a calendar tool that does a few operations over dates from the command line. *)
 let command = Command.group ~summary:"Manipulate dates" [ ("add", add); ("diff", diff) ]
-let () = Command_unix.run command

@@ -1,5 +1,7 @@
 (lang dune 3.17)
 
+(using menhir 3.0)
+
 (name myocaml)
 
 (generate_opam_files true)
@@ -11,23 +13,33 @@
 
 (maintainers "Maintainer Name <maintainer@example.com>")
 
-(license LICENSE)
+(license MIT)
 
 (documentation https://url/to/documentation)
 
 (package
  (name myocaml)
+ (synopsis "A collection of OCaml examples and exercises")
  ; install them by opam install . --deps-only
  (depends
   ocaml
   dune
-  (ocaml-lsp-server :dev)
-  (odoc :dev)
-  (ocamlformat :dev)
-  (utop :dev)
+  ocaml-lsp-server
+  odoc
+  ocamlformat
+  utop
   base
   core
   core_unix
-  core_bench))
+  core_bench
+  uri
+  yojson
+  ppx_deriving_yojson
+  cohttp
+  cohttp-async
+  async_ssl
+  textwrap
+  menhir
+  ppx_jane))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

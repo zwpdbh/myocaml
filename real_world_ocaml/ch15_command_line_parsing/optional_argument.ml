@@ -10,9 +10,7 @@ let do_hash filename = get_contents filename |> Md5.digest_string |> Md5.to_hex 
 
 (* A more realistic md5 binary could also read from the standard input if a filename isn’t specified *)
 let command =
-  Command.basic ~summary:"Generate an MD5 hash of the input data"
-    ~readme:(fun () -> "More detailed information")
+  Command.basic ~summary:"Demo optional argument command"
+    ~readme:(fun () -> "Generate an MD5 hash of the input data")
     (let%map_open.Command filename = anon (maybe ("filename" %: string)) in
      fun () -> do_hash filename)
-
-let () = Command_unix.run ~version:"1.0" ~build_info:"RWO" command

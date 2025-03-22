@@ -1,0 +1,6 @@
+; created by 
+; dune init exe acstor_cli acstor_cli
+
+(executable
+ (name acstor_cli)
+ (libraries base core utils))

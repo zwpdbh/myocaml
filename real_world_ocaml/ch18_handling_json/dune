@@ -1,0 +1,18 @@
+(executable
+ (name ch18)
+ (modules
+  ch18
+  basic
+  construct_json
+  example_nested_one
+  example_array_object
+  example_optional_fields_default)
+ (libraries
+  base
+  core
+  async
+  core_unix.command_unix
+  yojson
+  ppx_deriving_yojson.runtime)
+ (preprocess
+  (pps ppx_jane ppx_deriving_yojson)))

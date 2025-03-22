@@ -8,15 +8,12 @@ let filename_param =
   anon ("filename" %: string)
 
 (* After define a specification, put it to work by create a command-line interface *)
-let command =
+let command_deprecate_v1 =
   Command.basic ~summary:"Generate an MD5 hash of the input data"
     ~readme:(fun () -> "More detailed information")
     (Command.Param.map filename_param ~f:(fun filename () -> do_hash_v1 filename))
 
-(* dune exe -- ./real_world_ocaml/ch15_command_line_parsing/ch15.exe --help *)
-let () = Command_unix.run ~version:"1.0" ~build_info:"RWO" command
-
-let command =
+let command_deprecate_v2 =
   Command.basic ~summary:"Generate an MD5 hash of the input data"
     ~readme:(fun () -> "More detailed information")
     Command.Param.(
@@ -25,7 +22,7 @@ let command =
         ~f:(fun (hash_length, filename) () -> do_hash_v2 hash_length filename))
 
 (* An expanded version from above command  *)
-let command =
+let command_deprecate_v3 =
   let open Command.Param in
   (* Define the individual parameters *)
   let hash_length_param = anon ("hash_length" %: int) in
@@ -45,10 +42,8 @@ let command =
     ~readme:(fun () -> "More detailed information")
     param
 
-let () = Command_unix.run ~version:"2.0" ~build_info:"RWO" command
-
 (* let-syntax’s support for parallel let bindings *)
-let command =
+let command_deprecate_v4 =
   Command.basic ~summary:"Generate an MD5 hash of the input data"
     ~readme:(fun () -> "More detailed information")
     (let open Command.Let_syntax in
@@ -58,8 +53,22 @@ let command =
 
 (*  use let%map_open to automatically open Command.Let_syntax and Command.Param *)
 let command =
-  Command.basic ~summary:"Generate an MD5 hash of the input data"
-    ~readme:(fun () -> "More detailed information")
+  (* ch15_command_line_parsing/ch15.exe demo01 -- -help *)
+  Command.basic ~summary:"Demo the usage of annonymous argument"
+    ~readme:(fun () -> "Generate an MD5 hash of the input data")
     (let%map_open.Command hash_length = anon ("hash_length" %: int)
      and filename = anon ("filename" %: string) in
      fun () -> do_hash_v2 hash_length filename)
+
+let command =
+  Command.group ~summary:"Show different ways to build command"
+    [
+      ("demo01", command);
+      ("demo02", Custom_argument.command);
+      ("demo03", Default_argument.command);
+      ("demo04", Optional_argument.command);
+      ("demo05", Sequence_argument.command);
+      ("demo06", Labeled_argument.command);
+    ]
+
+let () = Command_unix.run ~version:"1.0" ~build_info:"" command
