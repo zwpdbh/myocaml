@@ -25,6 +25,7 @@ depends: [
   "cohttp-async"
   "async_ssl"
   "textwrap"
+  "menhir"
   "ppx_jane"
 ]
 build: [

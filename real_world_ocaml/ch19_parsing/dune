@@ -1,0 +1,13 @@
+(executable
+ (name ch19)
+ (modules ch19 parsing_binary parse_json)
+ (libraries
+  base
+  core
+  async
+  core_unix.command_unix
+  yojson
+  ppx_deriving_yojson.runtime
+  bitstring)
+ (preprocess
+  (pps ppx_jane ppx_deriving_yojson)))

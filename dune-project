@@ -37,6 +37,7 @@
   cohttp-async
   async_ssl
   textwrap
+  menhir
   ppx_jane))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html
