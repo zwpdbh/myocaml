@@ -32,6 +32,7 @@
   core_bench
   uri
   yojson
+  ppx_deriving_yojson
   cohttp
   cohttp-async
   async_ssl
