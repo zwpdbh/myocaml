@@ -1,6 +1,7 @@
 open Core
 open Async
 
+(* demo handle result await *)
 let read_int_async () =
   match%map Reader.read_line (force Reader.stdin) with
   | `Ok line -> (

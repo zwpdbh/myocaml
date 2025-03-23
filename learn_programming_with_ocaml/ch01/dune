@@ -2,13 +2,14 @@
 
 (executable
  (name ch01)
- (modules ch01 leap_year monte_carlo find_prime)
+ (modules ch01 leap_year monte_carlo find_prime draw_curve)
  (libraries
   base
   core
   async
   core_unix.command_unix
   yojson
-  ppx_deriving_yojson.runtime)
+  ppx_deriving_yojson.runtime
+  graphics)
  (preprocess
   (pps ppx_jane ppx_deriving_yojson)))

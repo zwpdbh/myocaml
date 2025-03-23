@@ -1,5 +1,6 @@
 open Core
 
+(* demo for loop and side effect *)
 let approx n =
   let p = ref 0 in
   (* For an expression
