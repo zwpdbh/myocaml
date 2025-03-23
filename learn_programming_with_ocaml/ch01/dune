@@ -1,0 +1,14 @@
+; For book Learn Programming with OCaml
+
+(executable
+ (name ch01)
+ (modules ch01 leap_year monte_carlo find_prime)
+ (libraries
+  base
+  core
+  async
+  core_unix.command_unix
+  yojson
+  ppx_deriving_yojson.runtime)
+ (preprocess
+  (pps ppx_jane ppx_deriving_yojson)))

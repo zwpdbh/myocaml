@@ -27,6 +27,7 @@ depends: [
   "textwrap"
   "menhir"
   "ppx_jane"
+  "graphics"
 ]
 build: [
   ["dune" "subst"] {dev}

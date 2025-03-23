@@ -40,6 +40,7 @@
   async_ssl
   textwrap
   menhir
-  ppx_jane))
+  ppx_jane
+  graphics))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html
