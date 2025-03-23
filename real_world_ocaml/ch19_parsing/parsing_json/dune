@@ -5,6 +5,7 @@
 
 (library
  (name parsing_json)
+ (public_name myocaml.parsing_json)
  (modules json parser lexer)
  (libraries
   base
