@@ -1,5 +1,5 @@
 (library
  (name utils)
  (public_name myocaml.utils)
- (modules cmd error)
+ (modules cmd)
  (libraries unix))
