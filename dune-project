@@ -24,10 +24,6 @@
  (depends
   ocaml
   dune
-  ocaml-lsp-server
-  odoc
-  ocamlformat
-  utop
   base
   core
   core_unix
@@ -41,6 +37,8 @@
   textwrap
   menhir
   ppx_jane
-  graphics))
+  graphics
+  bitstring
+  (ocaml-lsp-server :with-test)))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html
