@@ -2,7 +2,9 @@
 #require "core";;
 #require "core.top";;
 #require "ppx_jane";;
+#require "angstrom";;
 open Core;;
+open Angstrom;;
 
 (* Install Core's pretty printers *)
 #install_printer Core.Sexp.pp;;

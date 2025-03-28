@@ -39,6 +39,7 @@
   ppx_jane
   graphics
   bitstring
+  angstrom
   (ocaml-lsp-server :with-test)))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

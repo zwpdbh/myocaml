@@ -25,6 +25,7 @@ depends: [
   "ppx_jane"
   "graphics"
   "bitstring"
+  "angstrom"
   "ocaml-lsp-server" {with-test}
   "odoc" {with-doc}
 ]

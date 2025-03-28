@@ -1,0 +1,6 @@
+(executable
+ (name parser_combinator)
+ (modules parser_combinator statefulset)
+ (libraries base core core_unix.command_unix angstrom)
+ (preprocess
+  (pps ppx_jane)))
