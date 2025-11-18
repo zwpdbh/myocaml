@@ -10,7 +10,7 @@ let read_pair () =
 open Graphics
 
 let run n =
-  let data = Array.init n (fun i -> read_pair ()) in
+  let data = Array.init n (fun _i -> read_pair ()) in
   Array.sort compare data;
   open_graph " 200x200";
   set_line_width 3;
